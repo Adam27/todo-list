@@ -1,0 +1,19 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+}
+.header{
+  flex: 0 0;
+  text-align: center;
+}
+
+.content{
+  flex: 1 1 auto;
+}
+
+.footer{
+  flex: 0 0;
+  text-align: center;
+}

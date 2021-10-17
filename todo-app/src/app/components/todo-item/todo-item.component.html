@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-end mb-4">
+  <a class="btn btn-info" href="/">Back to list</a>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">{{todoItemEntry && todoItemEntry.sys.createdAt | date:'d.M.yy'}}</div>
+
+
+    <div>
+        <textarea class="form-control mb-4"
+                  id="todoItemDescription"
+                  [(ngModel)]="todoItemDescription" rows="6" name="secret" maxlength="256" autofocus
+                  [disabled]="!showUpdateForm"></textarea>
+
+      <div class="d-flex justify-content-end" [hidden]="!showUpdateForm">
+        <button class="btn btn-primary" (click)="update()">Update</button>
+        <button class="btn btn-secondary" (click)="showUpdateForm = !showUpdateForm">Cancel</button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start" [hidden]="showUpdateForm">
+      <button class="btn btn-primary" (click)="showUpdateForm = !showUpdateForm">Edit</button>
+      <button class="btn btn-danger mh-4" (click)="delete()">Delete</button>
+    </div>
+  </div>
+</div>
+

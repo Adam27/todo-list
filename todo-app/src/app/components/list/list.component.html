@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-end mb-4">
+  <button class="btn btn-success" [hidden]="showNewItemForm" (click)="showNewItemForm = !showNewItemForm">Add new item</button>
+</div>
+
+<div class="mb-4" [hidden]="!showNewItemForm">
+  <label>Add new todo item</label>
+  <textarea class="form-control mb-4"
+            id="todoItemDescription"
+
+            [(ngModel)]="newItemDescription" rows="6" name="secret" maxlength="256" autofocus [disabled]="!showNewItemForm"></textarea>
+
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary" (click)="create()">Add</button>
+    <button class="btn btn-secondary" (click)="showNewItemForm = !showNewItemForm">Cancel</button>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action"
+      *ngFor="let item of itemsEntries">
+
+    <div (click)="goToDetails(item.sys.id)">
+      <div>
+        Created: {{item.sys.createdAt | date:'d.M.yy' }}
+      </div>
+
+      <h2 [ngClass]="{'done': item.fields.isDone}" class="mt-3 mb-3">{{item.fields.description}}</h2>
+    </div>
+
+    <button class="btn btn-primary btn-sm" (click)="setDone(item.sys.id, !item.fields.isDone)">{{item.fields.isDone ? 'Undone' : 'Done'}}</button>
+  </li>
+</ul>
+
+
+
