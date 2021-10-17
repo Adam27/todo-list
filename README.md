@@ -12,6 +12,10 @@ ng serve
 ### To run build on local machine in /todo-app directory
 ng build
 
-## API documentation: https://app.contentful.com/
+## API documentation:
+https://app.contentful.com/
+
+## Demo:
+http://adamov-todo.freecluster.eu/
 
 
